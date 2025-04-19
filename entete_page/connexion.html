@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Explorez l'avenir de l'IHM</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Conteneur pour la barre de navigation -->
+    <div id="nav-container"></div>
+
+    <!-- Conteneur pour l'en-tête -->
+    <div id="header-container"></div>
+
+    <!-- Conteneur pour la barre de navigation des catégories -->
+    <div id="category-nav-container"></div>
+
+    <main id="main-connexion">
+        <h2>Connexion</h2>
+        <p>Connectez-vous à votre compte pour accéder à toutes nos ressources IHM :</p>
+        <form id="login-form">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p><a href="#">Mot de passe oublié ?</a></p>
+        <p>Pas encore de compte ? <a href="/entete_page/inscription.html">Inscrivez-vous</a>.</p>
+
+        <!-- Conteneur pour le GIF et le bouton de fermeture -->
+        <div class="gif-overlay" id="gif-overlay">
+            <div class="gif-container">
+                <img src="../assets/jurassic-park-ah.gif" alt="Jurassic Park - Ah ah ah, you didn't say the magic word!" class="gif">
+                <button class="close-gif" id="close-gif" aria-label="Fermer le GIF">Fermer</button>
+            </div>
+        </div>
+
+        <!-- Audio pour la musique -->
+        <audio id="magic-word-audio" src="../assets/vous_navez_pas_dit_le_mot_magique.mp3"></audio>
+    </main>
+
+    <!-- Conteneur pour le pied de page -->
+    <div id="footer-container"></div>
+
+    <!-- Inclure le script commun -->
+    <script src="../common.js"></script>
+
+    <!-- Script pour gérer le GIF et la musique -->
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêche l'envoi du formulaire pour l'instant (front-end uniquement)
+            
+            // Afficher le GIF
+            const gifOverlay = document.getElementById('gif-overlay');
+            gifOverlay.style.display = 'flex';
+
+            // Jouer la musique
+            const audio = document.getElementById('magic-word-audio');
+            audio.play();
+        });
+
+        document.getElementById('close-gif').addEventListener('click', function() {
+            // Masquer le GIF
+            const gifOverlay = document.getElementById('gif-overlay');
+            gifOverlay.style.display = 'none';
+
+            // Arrêter la musique
+            const audio = document.getElementById('magic-word-audio');
+            audio.pause();
+            audio.currentTime = 0; // Remet la musique au début pour la prochaine lecture
+        });
+    </script>
+</body>
+</html>

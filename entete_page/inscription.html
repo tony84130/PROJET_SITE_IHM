@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Explorez l'avenir de l'IHM</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Conteneur pour la barre de navigation -->
+    <div id="nav-container"></div>
+
+    <!-- Conteneur pour l'en-tête -->
+    <div id="header-container"></div>
+
+    <!-- Conteneur pour la barre de navigation des catégories -->
+    <div id="category-nav-container"></div>
+
+    <main id="main-inscription">
+        <h2>Inscription</h2>
+        <p>Créez votre compte pour rejoindre la communauté IHM :</p>
+        <form>
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirm-password">Confirmer le mot de passe :</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p>Déjà un compte ? <a href="/entete_page/connexion.html">Connectez-vous</a>.</p>
+    </main>
+    
+    <!-- Conteneur pour le pied de page -->
+    <div id="footer-container"></div>
+
+    <!-- Inclure le script commun -->
+    <script src="../common.js"></script>
+</body>
+</html>

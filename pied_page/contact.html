@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Explorez l'avenir de l'IHM</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Conteneur pour la barre de navigation -->
+    <div id="nav-container"></div>
+
+    <!-- Conteneur pour l'en-tête -->
+    <div id="header-container"></div>
+
+    <!-- Conteneur pour la barre de navigation des catégories -->
+    <div id="category-nav-container"></div>
+
+    <main class="contact-main">
+        <h2>Contactez-nous</h2>
+        <p>Pour toute question, suggestion ou feedback, remplissez le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais !</p>
+        <form id="contact-form" aria-label="Formulaire de contact">
+            <div class="form-group">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required aria-required="true">
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required aria-required="true">
+            </div>
+            <div class="form-group">
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" placeholder="Votre message..." required aria-required="true"></textarea>
+            </div>
+            <button type="submit" class="submit-button">Envoyer</button>
+            <p id="form-message" class="form-message" role="status"></p>
+        </form>
+    </main>
+
+    <!-- Conteneur pour le pied de page -->
+    <div id="footer-container"></div>
+
+    <!-- Inclure le script commun -->
+    <script src="../common.js"></script>
+    <!-- Script spécifique pour la validation du formulaire -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi réel pour l'instant
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const formMessage = document.getElementById('form-message');
+
+            if (name === '' || email === '' || message === '') {
+                formMessage.textContent = 'Veuillez remplir tous les champs.';
+                formMessage.classList.add('error');
+                formMessage.classList.remove('success');
+                return;
+            }
+
+            // Simulation d'une soumission réussie
+            formMessage.textContent = 'Merci pour votre message ! Nous vous répondrons bientôt.';
+            formMessage.classList.add('success');
+            formMessage.classList.remove('error');
+            //this.reset(); // Réinitialise le formulaire
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot et assistance en ligne - Explorez l'avenir de l'IHM</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <div id="nav-container"></div>
+    <div id="header-container"></div>
+    <div id="category-nav-container"></div>
+    
+    <main class="messaging-main">
+        <h2>Chatbot et assistance en ligne</h2>
+        <p>Les chatbots et l’assistance en ligne transforment les interfaces homme-machine (IHM) en offrant des interactions rapides, personnalisées et disponibles 24/7. Découvrez comment ces outils améliorent l’expérience utilisateur.</p>
+        
+        <div class="messaging-container">
+            <!-- Section texte -->
+            <div class="messaging-text">
+                <h3>Pourquoi utiliser un chatbot ?</h3>
+                <p>Les chatbots permettent de répondre instantanément aux questions des utilisateurs, de guider leur navigation, et de personnaliser leur expérience. Ils sont utilisés dans des domaines variés comme le service client, l’éducation, ou la santé.</p>
+                <ul>
+                    <li><strong>Disponibilité</strong> : Assistance 24/7, même en dehors des heures de travail.</li>
+                    <li><strong>Efficacité</strong> : Réponses rapides aux questions fréquentes.</li>
+                    <li><strong>Personnalisation</strong> : Adaptation des réponses selon le contexte de l’utilisateur.</li>
+                </ul>
+                <a href="#try-chatbot" class="access-button">Essayer notre chatbot</a>
+            </div>
+
+            <!-- Section aperçu du chat -->
+            <div class="messaging-preview" id="chatbot-preview">
+                <div class="chat-bubble">👋 Bonjour ! Je suis Grok, votre assistant IHM. Comment puis-je vous aider aujourd’hui ?</div>
+                <div class="chat-bubble reply">Je voudrais en savoir plus sur les chatbots dans les IHM.</div>
+                <div class="chat-bubble">Les chatbots dans les IHM permettent une interaction fluide et intuitive. Ils utilisent l’IA pour comprendre vos besoins et fournir des réponses pertinentes. Voulez-vous un exemple concret ?</div>
+                <div class="chat-bubble reply">Oui, s’il vous plaît !</div>
+                <div class="chat-bubble">Bien sûr ! Par exemple, un chatbot sur un site e-commerce peut vous aider à trouver un produit en posant des questions comme : "Quel type de produit cherchez-vous ?" Essayez-moi en tapant une question ci-dessous !</div>
+            </div>
+        </div>
+
+        <!-- Section interactive : Interaction avec le chatbot -->
+        <div class="interactive-section">
+            <h3>Parlez avec notre chatbot</h3>
+            <p>Posez une question ou décrivez ce que vous cherchez, et notre chatbot vous répondra !</p>
+            <div class="chatbot-input">
+                <input type="text" id="user-input" placeholder="Tapez votre message ici..." class="form-group input">
+                <button id="send-message" class="submit-button">Envoyer</button>
+            </div>
+            <div id="chatbot-response" class="messaging-preview" style="display: none;">
+                <div class="chat-bubble reply" id="user-message"></div>
+                <div class="chat-bubble" id="bot-reply"></div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer-container"></div>
+    <script src="../../common.js"></script>
+    <script>
+        // JavaScript pour gérer l’interaction avec le chatbot
+        document.getElementById('send-message').addEventListener('click', function() {
+            const userInput = document.getElementById('user-input').value.trim();
+            const responseDiv = document.getElementById('chatbot-response');
+            const userMessage = document.getElementById('user-message');
+            const botReply = document.getElementById('bot-reply');
+
+            if (userInput === '') {
+                alert('Veuillez entrer un message !');
+                return;
+            }
+
+            // Afficher le message de l’utilisateur
+            userMessage.textContent = userInput;
+            responseDiv.style.display = 'block';
+
+            // Simulation de réponse du chatbot
+            let botResponse = "Désolé, je suis encore en développement et je ne peux pas répondre précisément à toutes les questions. Mais je peux vous aider avec des informations générales sur les IHM ! Essayez de me demander quelque chose de simple.";
+
+            if (userInput.toLowerCase().includes('affordance')) {
+                botResponse = "L’affordance en IHM désigne les indices visuels ou fonctionnels qui indiquent comment interagir avec un élément. Par exemple, un bouton qui semble cliquable grâce à une ombre ou une couleur. Voulez-vous en savoir plus ?";
+            } else if (userInput.toLowerCase().includes('accessibilité')) {
+                botResponse = "L’accessibilité en IHM garantit que les interfaces sont utilisables par tous, y compris les personnes en situation de handicap. Par exemple, en ajoutant un support pour les lecteurs d’écran ou des contrastes élevés. Souhaitez-vous des exemples ?";
+            } else if (userInput.toLowerCase().includes('chatbot') || userInput.toLowerCase().includes('assistance')) {
+                botResponse = "Les chatbots comme moi améliorent les IHM en offrant une assistance instantanée et personnalisée. Je peux répondre à vos questions ou vous guider sur ce site. Que voulez-vous explorer ?";
+            }
+
+            botReply.textContent = botResponse;
+
+            // Réinitialiser le champ de saisie
+            document.getElementById('user-input').value = '';
+        });
+
+        // Permettre l’envoi avec la touche "Entrée"
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('send-message').click();
+            }
+        });
+    </script>
+</body>
+</html>
