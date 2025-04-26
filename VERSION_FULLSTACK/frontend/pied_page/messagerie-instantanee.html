@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagerie instantanée - Explorez l'avenir de l'IHM</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div id="nav-container"></div>
+    <div id="header-container"></div>
+    <div id="category-nav-container"></div>
+    <main class="messaging-main">
+        <h2>Messagerie instantanée</h2>
+        <p>Connectez-vous en temps réel avec d’autres passionnés d’IHM pour discuter de projets, partager des idées ou poser des questions.</p>
+        <div class="messaging-container" id="messaging-container">
+            <!-- Contenu pour les utilisateurs non connectés -->
+            <div class="messaging-text" id="messaging-text" style="display: none;">
+                <h3>Rejoignez la conversation</h3>
+                <p>Accédez à notre messagerie pour collaborer directement avec la communauté. Une connexion est requise pour commencer.</p>
+                <a href="../entete_page/connexion.html" class="access-button" aria-label="Accéder à la messagerie instantanée">Accéder à la messagerie</a>
+            </div>
+            <div class="messaging-preview" id="messaging-preview" style="display: none;">
+                <div class="chat-bubble">Salut ! Quel est ton outil préféré pour l’IHM ?</div>
+                <div class="chat-bubble reply">J’adore Figma pour le prototypage rapide ! 😊 Et toi ?</div>
+            </div>
+            <!-- Contenu pour les utilisateurs connectés -->
+            <div class="chat-container" id="chat-container" style="display: none;">
+                <div class="chat-sidebar">
+                    <h3>Conversations</h3>
+                    <ul id="conversation-list">
+                        <!-- Liste des conversations affichée dynamiquement -->
+                    </ul>
+                    <button id="new-conversation-button">Nouvelle conversation</button>
+                </div>
+                <div class="chat-main">
+                    <div class="chat-header" id="chat-header">
+                        <h3>Sélectionnez une conversation</h3>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Les messages seront affichés ici dynamiquement -->
+                    </div>
+                    <form id="chat-form" style="display: none;">
+                        <textarea id="chat-input" name="message" placeholder="Tapez votre message..." required></textarea>
+                        <button type="submit">Envoyer</button>
+                    </form>
+                    <p id="chat-error" style="display: none; color: red;"></p>
+                </div>
+            </div>
+            <!-- Modal pour sélectionner un utilisateur pour une nouvelle conversation -->
+            <div id="new-conversation-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-modal">×</span>
+                    <h3>Nouvelle conversation</h3>
+                    <select id="user-select" required>
+                        <option value="">Sélectionnez un utilisateur</option>
+                        <!-- Liste des utilisateurs affichée dynamiquement -->
+                    </select>
+                    <button id="start-conversation-button">Démarrer</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer-container"></div>
+    <script src="../common.js"></script>
+    <script src="../scripts/messagerie.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum - Explorez l'avenir de l'IHM</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div id="nav-container"></div>
+  <div id="header-container"></div>
+  <div id="category-nav-container"></div>
+  <main class="forum-main">
+    <h2>Forum de discussion</h2>
+    <p>Participez à nos discussions sur l’IHM, partagez vos idées et découvrez les dernières tendances !</p>
+    <button id="create-topic-button" class="create-topic-button" aria-label="Créer un nouveau sujet de discussion" aria-controls="create-topic-form">Créer un nouveau sujet</button>
+    <form id="create-topic-form" style="display: none;">
+      <p id="error-message" class="error-message"></p>
+      <label for="topic-title">Titre :</label>
+      <input type="text" id="topic-title" name="title" required>
+      <label for="topic-description">Description :</label>
+      <textarea id="topic-description" name="description" required></textarea>
+      <button type="submit">Créer</button>
+    </form>
+    <div id="topics-list" class="forum-topics">
+      <!-- Les sujets seront chargés dynamiquement ici -->
+    </div>
+    <div id="pagination" class="pagination"></div>
+  </main>
+  <div id="footer-container"></div>
+  <script src="../common.js"></script>
+  <script src="../scripts/forum.js"></script>
+</body>
+</html>

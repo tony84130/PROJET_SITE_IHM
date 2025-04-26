@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détail du sujet - Explorez l'avenir de l'IHM</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div id="nav-container"></div>
+  <div id="header-container"></div>
+  <div id="category-nav-container"></div>
+  <main class="topic-main">
+    <a
+      href="/pied_page/forum.html"
+      class="back-link"
+      aria-label="Retour à la liste des sujets"
+    >
+      ← Retour au forum
+    </a>
+    <div class="topic-header">
+      <h2 id="topic-title">Chargement...</h2>
+      <p id="topic-description"></p>
+      <div class="topic-meta" id="topic-meta"></div>
+    </div>
+    <section class="messages-section" aria-labelledby="messages-heading">
+      <h3 id="messages-heading">Réponses</h3>
+      <div class="messages-list" id="messages-list">
+        <!-- Les messages seront chargés dynamiquement ici -->
+      </div>
+      <div class="reply-form-container" id="reply-form-container">
+        <h4>Ajouter une réponse</h4>
+        <form id="reply-form" aria-label="Formulaire pour ajouter une réponse">
+          <p id="reply-error" class="error-message"></p>
+          <label for="reply-content">Votre réponse :</label>
+          <textarea
+            id="reply-content"
+            name="content"
+            required
+            placeholder="Votre réponse..."
+            aria-required="true"
+          ></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div id="footer-container"></div>
+  <script src="../common.js"></script>
+  <script src="../scripts/topic.js"></script>
+</body>
+</html>

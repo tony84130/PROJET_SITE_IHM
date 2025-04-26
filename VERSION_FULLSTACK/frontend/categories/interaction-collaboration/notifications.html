@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Explorez l'avenir de l'IHM</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <div id="nav-container"></div>
+    <div id="header-container"></div>
+    <div id="category-nav-container"></div>
+    
+    <main class="notifications-main">
+        <h2>Notifications dans les IHM</h2>
+        <p>Les notifications jouent un rôle clé dans les interfaces homme-machine en informant les utilisateurs de manière rapide et pertinente. Découvrez comment concevoir des notifications efficaces et explorez des exemples concrets.</p>
+        
+        <div class="notifications-container">
+            <!-- Introduction aux bonnes pratiques -->
+            <div class="notifications-text">
+                <h3>Bonnes pratiques pour des notifications efficaces</h3>
+                <p>Une notification bien conçue doit être claire, non intrusive et utile. Voici quelques principes à suivre :</p>
+                <ul>
+                    <li><strong>Clarté</strong> : Utilisez un langage simple et direct.</li>
+                    <li><strong>Contexte</strong> : Affichez les notifications au bon moment, selon l’action de l’utilisateur.</li>
+                    <li><strong>Personnalisation</strong> : Permettez aux utilisateurs de gérer leurs préférences (ex. : désactiver certaines alertes).</li>
+                    <li><strong>Non-intrusivité</strong> : Évitez de surcharger l’utilisateur avec trop de notifications.</li>
+                </ul>
+            </div>
+
+            <!-- Exemples de notifications -->
+            <div class="notifications-list">
+                <h3>Exemples de notifications</h3>
+                <div class="notification-item success">
+                    <span class="notification-icon">✅</span>
+                    <p>Votre conception a été soumise avec succès ! Elle est en attente de validation.</p>
+                    <span class="notification-time">Il y a 2 minutes</span>
+                </div>
+                <div class="notification-item info">
+                    <span class="notification-icon">ℹ️</span>
+                    <p>Un nouveau message vous attend dans le forum communautaire.</p>
+                    <span class="notification-time">Il y a 10 minutes</span>
+                </div>
+                <div class="notification-item warning">
+                    <span class="notification-icon">⚠️</span>
+                    <p>Attention : votre session va expirer dans 5 minutes.</p>
+                    <span class="notification-time">Il y a 1 minute</span>
+                </div>
+                <div class="notification-item error">
+                    <span class="notification-icon">❌</span>
+                    <p>Erreur : impossible de charger votre profil. Veuillez réessayer.</p>
+                    <span class="notification-time">Il y a 5 minutes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section interactive -->
+        <div class="interactive-section">
+            <h3>Simuler une notification</h3>
+            <p>Choisissez un type de notification pour voir comment elle s’affiche en temps réel.</p>
+            <div class="notification-simulator">
+                <select id="notification-type" class="form-group select">
+                    <option value="success">Succès</option>
+                    <option value="info">Information</option>
+                    <option value="warning">Avertissement</option>
+                    <option value="error">Erreur</option>
+                </select>
+                <button id="trigger-notification" class="submit-button">Déclencher</button>
+            </div>
+            <div id="notification-preview" class="notifications-list" style="display: none;">
+                <div id="simulated-notification" class="notification-item">
+                    <span class="notification-icon"></span>
+                    <p id="notification-message"></p>
+                    <span class="notification-time">À l’instant</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer-container"></div>
+    <script src="../../common.js"></script>
+    <script>
+        // JavaScript pour gérer la simulation de notification
+        document.getElementById('trigger-notification').addEventListener('click', function() {
+            const type = document.getElementById('notification-type').value;
+            const preview = document.getElementById('notification-preview');
+            const simulatedNotification = document.getElementById('simulated-notification');
+            const icon = simulatedNotification.querySelector('.notification-icon');
+            const message = document.getElementById('notification-message');
+
+            // Définir le style et le contenu en fonction du type
+            simulatedNotification.className = `notification-item ${type}`;
+            if (type === 'success') {
+                icon.textContent = '✅';
+                message.textContent = 'Action réussie ! Votre modification a été enregistrée.';
+            } else if (type === 'info') {
+                icon.textContent = 'ℹ️';
+                message.textContent = 'Nouveau contenu disponible dans la section Concepts clés.';
+            } else if (type === 'warning') {
+                icon.textContent = '⚠️';
+                message.textContent = 'Attention : votre connexion est instable.';
+            } else if (type === 'error') {
+                icon.textContent = '❌';
+                message.textContent = 'Erreur : impossible de traiter votre demande.';
+            }
+
+            // Afficher la notification
+            preview.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
