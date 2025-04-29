@@ -179,7 +179,7 @@ header img {
 }
 
 header h1 {
-    font-size: 2.2em;
+    font-size: 42px;
     color: var(--text-primary);
     flex-grow: 1;
     text-align: center;
@@ -889,7 +889,7 @@ footer a:hover {
 }
 
 .messaging-preview {
-    max-width: 400px;
+    max-width: 600px;
     background-color: var(--background-card);
     padding: 20px;
     border-radius: 12px;
@@ -2074,7 +2074,7 @@ footer a:hover {
 
 /* Ajustement pour les réponses du chatbot */
 #chatbot-response {
-    margin-top: 16px;
+    margin: 16px auto 0px auto;
     padding: 16px;
 }
 
@@ -2377,7 +2377,7 @@ footer a:hover {
     border-radius: 10px; /* Coins plus arrondis */
     width: 90%;
     max-width: 500px;
-    position: fixed;
+    /*position: fixed;*/
     top: 40%;
     left: 40%;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
@@ -3482,3 +3482,493 @@ footer a:hover {
     }
 }
 
+/* Animation Fade-In pour les cartes */
+.section-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: calc(var(--delay) * 0.1s); /* Décalage pour chaque carte */
+}
+
+/* Définir un délai pour chaque carte pour un effet en cascade */
+.section-card:nth-child(1) { --delay: 1; }
+.section-card:nth-child(2) { --delay: 2; }
+.section-card:nth-child(3) { --delay: 3; }
+.section-card:nth-child(4) { --delay: 4; }
+.section-card:nth-child(5) { --delay: 5; }
+.section-card:nth-child(6) { --delay: 6; }
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation Pulse pour les boutons */
+.section-card button:hover {
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 121, 107, 0.4); /* Utilisation de la couleur primaire */
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(0, 121, 107, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 121, 107, 0);
+    }
+}
+
+/* Canvas pour les particules */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Derrière tout le contenu */
+    opacity: 0.3; /* Subtil */
+}
+
+/* Animation d'éclat pour les badges */
+.news-badge, .event-badge {
+    animation: glow 2s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 121, 107, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(0, 121, 107, 0.8); }
+}
+
+/* Animation de vague au survol */
+.news-badge:hover, .event-badge:hover {
+    animation: wave 0.8s ease;
+}
+
+@keyframes wave {
+    0% { box-shadow: 0 0 0 0 rgba(0, 121, 107, 0.7); }
+    100% { box-shadow: 0 0 0 20px rgba(0, 121, 107, 0); }
+}
+
+/* Conteneur pour l'onde */
+.section-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Style de l'onde */
+.ripple {
+    position: absolute;
+    background: radial-gradient(circle, rgba(0, 121, 107, 0.3), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: rippleEffect 0.8s ease-out forwards;
+}
+
+@keyframes rippleEffect {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Traînée lumineuse pour les éléments de navigation */
+.category-item {
+    position: relative;
+}
+
+.category-item > a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+.category-item:hover > a::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Animation de glissement pour le menu déroulant */
+.category-item .dropdown {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover .dropdown {
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.2);
+}
+
+/* Éclat sur les liens du menu déroulant au survol */
+.category-item .dropdown a {
+    position: relative;
+}
+
+.category-item .dropdown a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 121, 107, 0.2);
+    transition: width 0.3s ease;
+}
+
+.category-item .dropdown a:hover::after {
+    width: 100%;
+}
+
+/* Animation de scintillement pour les étoiles */
+.stars {
+    display: inline-block;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Style pour les compteurs */
+.stats p span:not(.stars) {
+    display: inline-block;
+    min-width: 40px; /* Évite les sauts de mise en page */
+    text-align: right;
+}
+
+/* Animation pour la barre de progression */
+.progress-bar {
+    background-color: var(--border-color);
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.progress-bar #progress {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    height: 100%;
+    width: 0; /* Commence à 0 */
+    transition: width 2s ease; /* Animation fluide sur 2 secondes */
+}
+
+/* Animation de rebond */
+.search-bar.bounce {
+    animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(5px); }
+    80% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.section-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.section-card:hover {
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 0 8px 16px rgba(0, 121, 107, 0.3);
+}
+
+.section-card img {
+    transition: transform 0.3s ease;
+}
+
+.section-card:hover img {
+    transform: scale(1.1);
+}
+
+.section-card button {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-card button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.section-card button:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+footer a {
+    position: relative;
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background: var(--secondary);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Transition fluide pour la navigation Actualités/Événements */
+.news-content, .events-content {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none;
+}
+
+.news-content.active, .events-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+/* Style pour les boutons de la mini-nav */
+.mini-nav-button {
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    font-size: 0.95em;
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.mini-nav-button.active {
+    color: var(--primary);
+}
+
+.mini-nav-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.mini-nav-button:hover {
+    color: var(--secondary);
+}
+
+/* Amélioration des boutons "En savoir plus" et "S'inscrire" */
+.news-link, .event-link {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--background-white);
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-link {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+}
+
+.news-link:hover, .event-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 121, 107, 0.3);
+}
+
+.news-link::after, .event-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.news-link:hover.ConcurrentModificationException, .event-link:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+/* Styles pour la modale */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content-2 {
+    background: var(--background-white);
+    padding: 24px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    left: 0px;
+    top: 0px;
+    animation: slideIn 0.3s ease;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+.modal-content-2 h3 {
+    margin: 0 0 16px;
+    font-size: 1.4em;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: center;
+}
+
+.modal-content-2 p {
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-action {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-action form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-action input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95em;
+    transition: border-color 0.2s ease;
+}
+
+.modal-action input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.modal-action button {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+    color: var(--background-white);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.modal-action button:hover {
+    background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+    transform: scale(1.05);
+}
+
+.modal-close-button {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--background-white);
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.modal-close-button:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: scale(1.05);
+}
+
+/* Responsive pour la modale */
+@media (max-width: 768px) {
+    .modal-content-2 {
+        width: 90%;
+        max-width: 320px;
+        padding: 15px;
+    }
+
+    .modal-content-2 h3 {
+        font-size: 1.2em;
+    }
+
+    .modal-content-2 p {
+        font-size: 0.9em;
+    }
+
+    .modal-close-button, .modal-action button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}

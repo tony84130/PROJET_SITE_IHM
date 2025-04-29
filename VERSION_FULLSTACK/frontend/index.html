@@ -8,6 +8,8 @@
     <link rel="icon" type="image/x-icon" href="/LOGO/LOGO_IHM.png">
 </head>
 <body>
+    <canvas id="particles-canvas"></canvas>
+    
     <!-- Conteneur pour la barre de navigation -->
     <div id="nav-container"></div>
 
@@ -23,42 +25,42 @@
             <!-- Sections principales -->
             <div class="sections">
                 <div class="section-card">
-                    <img src="LOGO/HISTOIRE_CONCEPT_IHM.png" alt="IHM Icon">
+                    <img src="LOGO/HISTOIRE_CONCEPT_IHM.png" alt="Icône IHM">
                     <h3>Histoire et Concepts de l'IHM</h3>
                     <a href="/categories/histoire-concepts/histoire-concepts.html" aria-label="Découvrir Histoire et Concepts de l’IHM">
                         <button>Explorer</button>
                     </a>
                 </div>
                 <div class="section-card">
-                    <img src="LOGO/RESSOURCES_BIBLIOGRAPHIE.png" alt="Book Icon">
+                    <img src="LOGO/RESSOURCES_BIBLIOGRAPHIE.png" alt="Icône Livre">
                     <h3>Ressources et Bibliographie</h3>
                     <a href="/categories/ressources-bibliographie/ressources-bibliographie.html" aria-label="Découvrir Ressources et Bibliographie">
                         <button>Explorer</button>
                     </a>
                 </div>
                 <div class="section-card">
-                    <img src="LOGO/OUTILS_IHM.png" alt="Tools Icon">
+                    <img src="LOGO/OUTILS_IHM.png" alt="Icône Outils">
                     <h3>Outils pour l'IHM</h3>
                     <a href="/categories/outils-ihm/outils-ihm.html" aria-label="Découvrir Outils pour l’IHM">
                         <button>Explorer</button>
                     </a>
                 </div>
                 <div class="section-card">
-                    <img src="LOGO/FORMATION_APPRENTISSAGE.png" alt="Learn Icon">
+                    <img src="LOGO/FORMATION_APPRENTISSAGE.png" alt="Icône Apprentissage">
                     <h3>Formation et Apprentissage</h3>
                     <a href="/categories/formation-apprentissage/formation-apprentissage.html" aria-label="Découvrir Formation et Apprentissage">
                         <button>Explorer</button>
                     </a>
                 </div>
                 <div class="section-card">
-                    <img src="LOGO/COMMUNAUTE_INSPIRATION.png" alt="Community Icon">
+                    <img src="LOGO/COMMUNAUTE_INSPIRATION.png" alt="Icône Communauté">
                     <h3>Communauté et Inspiration</h3>
                     <a href="/categories/communaute-inspiration/communaute-inspiration.html" aria-label="Découvrir Communauté et Inspiration">
                         <button>Explorer</button>
                     </a>
                 </div>
                 <div class="section-card">
-                    <img src="LOGO/INTERACTION_COLLABORATION.png" alt="Chat Icon">
+                    <img src="LOGO/INTERACTION_COLLABORATION.png" alt="Icône Chat">
                     <h3>Interaction et Collaboration</h3>
                     <a href="/categories/interaction-collaboration/interaction-collaboration.html" aria-label="Découvrir Interaction et Collaboration">
                         <button>Explorer</button>
@@ -69,8 +71,8 @@
             <!-- Sidebar droite -->
             <div class="sidebar">
                 <div class="mini-nav">
-                    <a href="#" class="active" onclick="showContent('news')" aria-label="Afficher les actualités du site">Actualités<!-- du site--></a>
-                    <a href="#" onclick="showContent('events')" aria-label="Afficher les événements">Événements</a>
+                    <button class="mini-nav-button active" onclick="showContent('news')" aria-label="Afficher les actualités du site">Actualités</button>
+                    <button class="mini-nav-button" onclick="showContent('events')" aria-label="Afficher les événements">Événements</button>
                 </div>
                 <div class="news-content active">
                     <div class="news-card">
@@ -78,13 +80,13 @@
                         <h3>Nouvelle conférence IHM 2025</h3>
                         <p>Découvrez les dernières tendances en IHM.</p>
                         <p class="meta">Publié le 10 avril 2025</p>
-                        <a href="#" class="news-link" aria-label="En savoir plus sur la conférence IHM 2025">En savoir plus</a>
+                        <button class="news-link" data-type="news" data-title="Nouvelle conférence IHM 2025" data-description="Participez à la conférence IHM 2025 pour explorer les innovations en interfaces homme-machine. Des experts du monde entier partageront leurs idées." aria-label="En savoir plus sur la conférence IHM 2025">En savoir plus</button>
                     </div>
                     <div class="news-card">
                         <h3>Mise à jour de la plateforme</h3>
                         <p>Nouvelles fonctionnalités disponibles.</p>
                         <p class="meta">Publié le 5 avril 2025</p>
-                        <a href="#" class="news-link" aria-label="En savoir plus sur la mise à jour de la plateforme">En savoir plus</a>
+                        <button class="news-link" data-type="news" data-title="Mise à jour de la plateforme" data-description="La plateforme a été mise à jour avec de nouvelles fonctionnalités pour améliorer votre expérience d'apprentissage et de collaboration." aria-label="En savoir plus sur la mise à jour de la plateforme">En savoir plus</button>
                     </div>
                 </div>
                 <div class="events-content">
@@ -93,20 +95,20 @@
                         <h3>Webinaire IHM : UX Design</h3>
                         <p>Rejoignez-nous le 15 mai 2025.</p>
                         <p class="meta">15 mai 2025 • En ligne</p>
-                        <a href="#" class="event-link" aria-label="S'inscrire au webinaire UX Design">S'inscrire</a>
+                        <button class="event-link" data-type="event" data-title="Webinaire IHM : UX Design" data-description="Inscrivez-vous à notre webinaire pour découvrir les meilleures pratiques en UX Design. Animé par des experts, cet événement est gratuit !" aria-label="S'inscrire au webinaire UX Design">S'inscrire</button>
                     </div>
                     <div class="event-card">
                         <h3>Atelier Prototypage</h3>
                         <p>Inscrivez-vous pour juin 2025.</p>
                         <p class="meta">10 juin 2025 • Montpellier</p>
-                        <a href="#" class="event-link" aria-label="S'inscrire à l'atelier Prototypage">S'inscrire</a>
+                        <button class="event-link" data-type="event" data-title="Atelier Prototypage" data-description="Participez à notre atelier pratique sur le prototypage d'interfaces à Montpellier. Places limitées !" aria-label="S'inscrire à l'atelier Prototypage">S'inscrire</button>
                     </div>
                 </div>
                 <div class="stats">
                     <h3>Statistiques</h3>
-                    <p>Taux de satisfaction : 4.8/5 <span class="stars">★★★★★</span></p>
-                    <p>Taux de réussite : 95%</p>
-                    <div class="progress-bar"><div></div></div>
+                    <p>Taux de satisfaction : <span id="satisfaction">0</span>/5 <span class="stars">★★★★★</span></p>
+                    <p>Taux de réussite : <span id="success">0</span>%</p>
+                    <div class="progress-bar"><div id="progress"></div></div>
                 </div>
             </div>
         </div>
@@ -115,16 +117,16 @@
     <!-- Conteneur pour le pied de page -->
     <div id="footer-container"></div>
 
-    <script>
-        function showContent(type) {
-            document.querySelector('.news-content').classList.remove('active');
-            document.querySelector('.events-content').classList.remove('active');
-            document.querySelector(`.${type}-content`).classList.add('active');
-
-            document.querySelectorAll('.mini-nav a').forEach(link => link.classList.remove('active'));
-            document.querySelector(`.mini-nav a[onclick="showContent('${type}')"]`).classList.add('active');
-        }
-    </script>
+    <!-- Modale pour "En savoir plus" et "S'inscrire" -->
+    <div id="info-modal" class="modal" style="display: none;">
+        <div class="modal-content-2">
+            <span class="close-modal" aria-label="Fermer la modale">×</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <div id="modal-action" class="modal-action"></div>
+            <button class="modal-close-button">Fermer</button>
+        </div>
+    </div>
 
     <!-- Inclure le script commun -->
     <script src="common.js"></script>
